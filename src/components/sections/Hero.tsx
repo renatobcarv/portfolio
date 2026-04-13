@@ -64,41 +64,47 @@ export default function Hero() {
         {/* Right Side: Floating Mockup Layers */}
         <motion.div 
           variants={itemVariants}
-          className="relative h-[500px] flex items-center justify-center lg:justify-end"
+          className="relative h-[600px] flex items-center justify-center lg:justify-end mt-12 lg:mt-0"
         >
           <div className="w-[450px] h-[550px] relative perspective-1000">
             
             {/* Base Layer: Profile */}
             <motion.div 
-              animate={{ y: [0, -10, 0] }}
+              animate={{ y: [0, -8, 0] }}
               transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-80 rounded-3xl overflow-hidden glass z-10 border border-white/5 opacity-50 filter grayscale contrast-125"
+              className="absolute top-1/2 left-[55%] -translate-x-1/2 -translate-y-1/2 w-[280px] h-[380px] rounded-[2rem] overflow-hidden z-10 border border-white/[0.04] filter grayscale-[0.4] contrast-110 shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
             >
+              <div className="absolute inset-0 bg-gradient-to-t from-[#020202] via-[#020202]/20 to-transparent z-10 pointer-events-none" />
               <Image 
                 src="/images/perfilimage.jpeg" 
                 alt="Renato B. Carvalho" 
                 fill 
-                className="object-cover"
+                className="object-cover object-center scale-105"
               />
             </motion.div>
 
             {/* Middle Layer: VOYDRA Card */}
             <motion.div 
-              animate={{ y: [0, 15, 0], rotate: [-2, 2, -2] }}
+              animate={{ y: [0, 15, 0], rotate: [-1, 2, -1] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute top-10 right-0 glass p-6 rounded-[2rem] w-64 shadow-2xl z-20 border-white/10 bg-[#050505]/40"
+              className="absolute top-4 right-0 p-6 rounded-[1.5rem] w-64 shadow-[0_30px_60px_rgba(0,0,0,0.6)] z-20 border border-white/[0.05] bg-[#0A0A0A]/40 backdrop-blur-2xl"
             >
-              <div className="text-[10px] font-mono uppercase tracking-widest text-emerald mb-4">Project 02</div>
-              <div className="relative w-full h-12 mb-4">
-                 <Image src="/images/VOYDRA LOGO.png" alt="VOYDRA Logo" fill className="object-contain object-left filter invert brightness-0 opacity-80" />
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-50" />
+              
+              <div className="flex items-center justify-between mb-6">
+                <span className="text-[8px] font-mono uppercase tracking-[0.2em] text-white/30">Bootstrapped</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-white/20" />
               </div>
-              <div className="space-y-4">
-                <div className="flex justify-between items-center text-xs font-sans text-white/50 border-b border-white/5 pb-2">
-                  <span>Revenue</span>
-                  <span className="font-mono text-white">R$6k/mês</span>
+              <div className="relative w-32 h-8 mb-8">
+                 <Image src="/images/VOYDRA LOGO.png" alt="VOYDRA Logo" fill className="object-contain object-left brightness-0 invert opacity-90" />
+              </div>
+              <div className="flex flex-col gap-2">
+                <div className="flex justify-between items-baseline">
+                  <span className="text-[10px] font-sans text-white/40 uppercase tracking-widest">Base MRR</span>
+                  <span className="font-mono text-xl text-white font-medium tracking-tight">6k<span className="text-[10px] text-white/30 ml-1 font-sans">BRL</span></span>
                 </div>
-                <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden">
-                  <div className="w-full h-full bg-emerald" />
+                <div className="w-full h-[2px] bg-white/5 rounded-full overflow-hidden">
+                  <div className="w-full h-full bg-white/40" />
                 </div>
               </div>
             </motion.div>
@@ -107,23 +113,34 @@ export default function Hero() {
             <motion.div 
               animate={{ y: [0, -20, 0], x: [0, -10, 0] }}
               transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-              className="absolute bottom-[10%] -left-10 glass p-8 rounded-[2rem] w-72 shadow-2xl z-30 border-white/20 bg-[#050505]/60 backdrop-blur-xl"
+              className="absolute bottom-[5%] -left-12 p-8 rounded-[2rem] w-[300px] shadow-[0_40px_80px_rgba(0,0,0,0.8)] z-30 border border-emerald/10 bg-[#050505]/80 backdrop-blur-3xl overflow-hidden"
             >
-              <div className="flex items-start justify-between mb-6">
-                <div className="relative w-24 h-8">
+              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-emerald/5 to-transparent pointer-events-none" />
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald/30 to-transparent opacity-80" />
+              
+              <div className="flex items-start justify-between mb-8 relative z-10">
+                <div className="relative w-32 h-10">
                    <Image src="/images/Valence Logo.png" alt="Valence Logo" fill className="object-contain object-left filter brightness-200" />
                 </div>
-                <span className="px-2 py-1 bg-emerald/20 text-emerald text-[9px] font-mono uppercase tracking-widest rounded-md border border-emerald/30">
-                  Active
-                </span>
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-emerald/20 blur-md rounded-full" />
+                  <span className="relative px-2 py-1 bg-[#020202] text-emerald text-[8px] font-mono uppercase tracking-[0.2em] rounded-[4px] border border-emerald/20 flex items-center gap-1.5 shadow-[inset_0_0_0_1px_rgba(52,211,153,0.1)]">
+                    <span className="w-1 h-1 rounded-full bg-emerald animate-pulse" />
+                    IN DEV
+                  </span>
+                </div>
               </div>
               
-              <div className="font-serif text-3xl font-medium mb-1">12x ROI</div>
-              <div className="text-xs font-sans text-white/40 mb-6">Sistema de Recuperação</div>
+              <div className="relative z-10">
+                <div className="font-serif text-3xl font-medium mb-1 text-white tracking-tighter">Recuperação</div>
+                <div className="text-xs font-sans text-cyber-white/50 mb-8 max-w-[90%] leading-relaxed font-light">
+                  Motor determinístico de receita. Automação sem caixa preta.
+                </div>
 
-              <div className="flex justify-between text-xs font-mono uppercase tracking-widest">
-                <span className="opacity-40">Recovery Rate</span>
-                <span className="text-emerald">85%</span>
+                <div className="flex justify-between items-center text-[9px] font-mono uppercase tracking-[0.2em] pt-4 border-t border-white/5">
+                  <span className="text-white/30">Target Focus</span>
+                  <span className="text-emerald">Retenção Extrema</span>
+                </div>
               </div>
             </motion.div>
 
