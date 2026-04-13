@@ -248,9 +248,9 @@ export const projects: ProjectData[] = [
         "/images/voydra/12.jpeg"
       ],
       videos: [
-        "/images/voydra/Estampas/Videos/Felipe de Melo 200kg.mp4",
+        "/images/voydra/Estampas/Videos/Felipe_de_Melo_200kg.mp4",
         "/images/voydra/Estampas/Videos/HUMILHADOS.mp4",
-        "/images/voydra/Estampas/Videos/Marca de Powerlifting.mp4",
+        "/images/voydra/Estampas/Videos/Marca_de_Powerlifting.mp4",
         "/images/voydra/Estampas/Videos/PROVES.mp4",
         "/images/voydra/Estampas/Videos/a.mp4"
       ],
