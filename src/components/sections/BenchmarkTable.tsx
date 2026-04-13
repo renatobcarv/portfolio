@@ -17,7 +17,7 @@ const systemMetrics = [
     category: "RECEITA & CRESCIMENTO",
     rows: [
       { label: "VØYDRA — Receita Recorrente Base", value: 6, suffix: "k", unit: "R$/mês", status: "live" },
-      { label: "Valence — Um projeto em desenvolvimento com base em recuperação de grana", textValue: "Em Dev", suffix: "", unit: "Retenção", status: "stable" },
+      { label: "Valence — Operação de recuperação de receita determinística", textValue: "Em Dev", suffix: "", unit: "Live Beta", status: "live", url: "https://www.valencepro.com/" },
     ],
   },
   {
@@ -161,9 +161,24 @@ export default function BenchmarkTable() {
                           row.status === "live" ? "bg-emerald animate-pulse" : "bg-white/20"
                         }`} />
                       </div>
-                      <span className="font-sans text-sm text-cyber-white/70 group-hover:text-white/90 transition-colors">
-                        {row.label}
-                      </span>
+                      
+                      {row.url ? (
+                        <a 
+                          href={row.url} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 font-sans text-sm text-cyber-white/70 group-hover:text-emerald transition-colors"
+                        >
+                          {row.label}
+                          <svg className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-all transform -translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          </svg>
+                        </a>
+                      ) : (
+                        <span className="font-sans text-sm text-cyber-white/70 group-hover:text-white/90 transition-colors">
+                          {row.label}
+                        </span>
+                      )}
                     </div>
 
                     {/* Value */}

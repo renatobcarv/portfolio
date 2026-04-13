@@ -110,10 +110,14 @@ export default function Hero() {
             </motion.div>
 
             {/* Front Layer: Valence Card */}
-            <motion.div 
+            <motion.a 
+              href="https://www.valencepro.com/"
+              target="_blank"
+              rel="noopener noreferrer"
               animate={{ y: [0, -20, 0], x: [0, -10, 0] }}
               transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-              className="absolute bottom-[5%] -left-12 p-8 rounded-[2rem] w-[300px] shadow-[0_40px_80px_rgba(0,0,0,0.8)] z-30 border border-emerald/10 bg-[#050505]/80 backdrop-blur-3xl overflow-hidden"
+              whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+              className="absolute bottom-[5%] -left-12 p-8 rounded-[2rem] w-[300px] shadow-[0_40px_80px_rgba(0,0,0,0.8)] z-30 border border-emerald/10 bg-[#050505]/80 backdrop-blur-3xl overflow-hidden cursor-pointer group/valence"
             >
               <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-emerald/5 to-transparent pointer-events-none" />
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald/30 to-transparent opacity-80" />
@@ -132,7 +136,12 @@ export default function Hero() {
               </div>
               
               <div className="relative z-10">
-                <div className="font-serif text-3xl font-medium mb-1 text-white tracking-tighter">Recuperação</div>
+                <div className="flex items-center justify-between mb-1">
+                  <div className="font-serif text-3xl font-medium text-white tracking-tighter">Recuperação</div>
+                  <svg className="w-5 h-5 text-emerald opacity-0 group-hover/valence:opacity-100 transition-all transform translate-y-1 group-hover/valence:translate-y-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </div>
                 <div className="text-xs font-sans text-cyber-white/50 mb-8 max-w-[90%] leading-relaxed font-light">
                   Motor determinístico de receita. Automação sem caixa preta.
                 </div>
@@ -142,7 +151,7 @@ export default function Hero() {
                   <span className="text-emerald">Retenção Extrema</span>
                 </div>
               </div>
-            </motion.div>
+            </motion.a>
 
           </div>
         </motion.div>
