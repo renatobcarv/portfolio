@@ -4,7 +4,7 @@ import TechStack from "@/components/sections/TechStack";
 import Projects from "@/components/sections/Projects";
 import FeatureGrid from "@/components/sections/FeatureGrid";
 import BenchmarkTable from "@/components/sections/BenchmarkTable";
-import CTASection from "@/components/sections/CTASection";
+import Contact from "@/components/sections/Contact";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 
 export default function Home() {
@@ -16,7 +16,7 @@ export default function Home() {
       <Projects />
       <FeatureGrid />
       <BenchmarkTable />
-      <CTASection />
+      <Contact />
     </main>
   );
 }
