@@ -4,7 +4,7 @@ import AboutMe from "@/components/sections/AboutMe";
 import TechStack from "@/components/sections/TechStack";
 import Projects from "@/components/sections/Projects";
 import ProjectQualifier from "@/components/sections/ProjectQualifier";
-import FeatureGrid from "@/components/sections/FeatureGrid";
+
 import Methodology from "@/components/sections/Methodology";
 import FAQ from "@/components/sections/FAQ";
 import BenchmarkTable from "@/components/sections/BenchmarkTable";
@@ -20,7 +20,7 @@ export default function Home() {
       <Projects />
       <ProjectQualifier />
       <Methodology />
-      <FeatureGrid />
+
       <BenchmarkTable />
       <Contact />
       <FAQ />
