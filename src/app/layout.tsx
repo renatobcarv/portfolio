@@ -31,8 +31,21 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Renato Barros de Carvalho | Revenue Engineer",
+  metadataBase: new URL("https://www.renatobdev.pro"),
+  title: "Renato B. Carvalho | Revenue Engineer",
   description: "Desenvolvedor que constrói sistemas com impacto real. Foco em performance, automação e soluções escaláveis.",
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    url: "https://www.renatobdev.pro",
+    title: "Renato B. Carvalho | Revenue Engineer",
+    description: "Desenvolvedor que constrói sistemas com impacto real. Foco em performance, automação e soluções escaláveis.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Renato B. Carvalho | Revenue Engineer",
+    description: "Desenvolvedor que constrói sistemas com impacto real. Foco em performance, automação e soluções escaláveis.",
+  }
 };
 
 export default function RootLayout({
