@@ -27,7 +27,7 @@ export default function CTASection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ delay: 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
           className="text-6xl md:text-8xl lg:text-[120px] font-serif font-medium tracking-tightest leading-[0.9] mb-12 text-transparent bg-clip-text bg-[linear-gradient(90deg,#EBEBEB,rgba(16,185,129,0.8),#EBEBEB)] bg-[length:200%_auto] animate-[shimmer_6s_linear_infinite]"
         >
           Pronto para o<br/>

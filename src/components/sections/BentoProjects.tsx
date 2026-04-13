@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ExternalLink, Github, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 interface Project {
   id: string;
@@ -118,9 +118,11 @@ export default function BentoProjects() {
               <div className="flex flex-col items-start md:items-end gap-8 w-full md:w-auto">
                 {project.image && (
                   <div className="relative w-20 h-20 rounded-2xl overflow-hidden bg-black/40 border border-white/5 p-4 backdrop-blur-md shadow-2xl">
-                    <img 
+                    <Image 
                       src={project.image} 
                       alt={project.title} 
+                      width={80}
+                      height={80}
                       className="w-full h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity"
                     />
                   </div>

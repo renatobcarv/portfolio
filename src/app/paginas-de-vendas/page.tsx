@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { ArrowRight, Filter, Sparkles, X } from "lucide-react";
 import Link from "next/link";
 import { landingStyles, categories, categoryColors } from "@/data/landing-styles";
@@ -94,11 +95,12 @@ export default function PaginasDeVendas() {
                 <SpotlightCard className="border border-white/5 group overflow-hidden hover:border-emerald/10 transition-all duration-500">
                   {/* Thumbnail */}
                   <div className="relative overflow-hidden">
-                    <img
+                    <Image
                       src={style.thumbnail}
                       alt={style.name}
+                      width={600}
+                      height={400}
                       className="w-full h-auto object-cover group-hover:scale-[1.03] transition-transform duration-700"
-                      loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     

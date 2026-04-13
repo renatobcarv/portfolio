@@ -2,6 +2,7 @@
 
 import { projects } from "@/data/projects";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   ArrowLeft, Database, Cpu, Target, Award, X, Play, 
@@ -99,15 +100,21 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
               </>
             )}
 
-            <motion.img
+            <motion.div
               key={selectedImage || lightboxImages[lightboxIndex]}
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              src={selectedImage || lightboxImages[lightboxIndex]}
-              alt="Project Visual"
-              className="max-w-[90vw] max-h-[85vh] object-contain rounded-lg shadow-2xl relative z-[105]"
-            />
+              className="relative max-w-[90vw] max-h-[85vh] z-[105]"
+            >
+              <Image
+                src={selectedImage || lightboxImages[lightboxIndex]}
+                alt="Project Visual"
+                width={1200}
+                height={800}
+                className="object-contain rounded-lg shadow-2xl"
+              />
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -230,10 +237,11 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
                     onClick={() => setSelectedImage(path)}
                     className="group relative aspect-[3/4] rounded-3xl overflow-hidden bg-white/[0.02] border border-white/5 cursor-zoom-in"
                   >
-                    <img
+                    <Image
                       src={path}
                       alt="Design Preview"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
                        <span className="font-mono text-[8px] tracking-widest uppercase text-white/60">Expandir Visual</span>
@@ -738,10 +746,11 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
                     onClick={() => { setLightboxImages(project.infoproducts!.products.map(p => p.image)); setLightboxIndex(idx); }}
                   >
                     <div className="aspect-[3/4] rounded-2xl overflow-hidden relative border border-white/5 group-hover:border-emerald/20 transition-all">
-                      <img 
+                      <Image 
                         src={product.image} 
                         alt={product.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-700"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-4">
@@ -821,10 +830,11 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
                       className="aspect-video rounded-xl overflow-hidden border border-white/5 hover:border-emerald/10 transition-all cursor-pointer group"
                       onClick={() => { setLightboxImages(project.gallery!.social); setLightboxIndex(idx); }}
                     >
-                      <img 
+                      <Image 
                         src={img} 
                         alt={`Área de Membros ${idx + 1}`}
-                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                        fill
+                        className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
                       />
                     </motion.div>
                   ))}
