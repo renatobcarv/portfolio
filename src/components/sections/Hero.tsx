@@ -97,7 +97,7 @@ export default function Hero() {
                 <span className="w-1.5 h-1.5 rounded-full bg-white/20" />
               </div>
               <div className="relative w-32 h-8 mb-8">
-                 <Image src="/images/VOYDRA LOGO.png" alt="VOYDRA Logo" fill className="object-contain object-left brightness-0 invert opacity-90" />
+                 <Image src="/images/voydra/VOYDRA_LOGO.png" alt="VOYDRA Logo" fill className="object-contain object-left brightness-0 invert opacity-90" />
               </div>
               <div className="flex flex-col gap-2">
                 <div className="flex justify-between items-baseline">
@@ -125,7 +125,7 @@ export default function Hero() {
               
               <div className="flex items-start justify-between mb-8 relative z-10">
                 <div className="relative w-32 h-10">
-                   <Image src="/images/Valence Logo.png" alt="Valence Logo" fill className="object-contain object-left filter brightness-200" />
+                   <Image src="/images/valence/Valence_Logo.png" alt="Valence Logo" fill className="object-contain object-left filter brightness-200" />
                 </div>
                 <div className="relative group">
                   <div className="absolute inset-0 bg-emerald/20 blur-md rounded-full" />
