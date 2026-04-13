@@ -130,15 +130,15 @@ export default function InstitutionalBriefing() {
   };
 
   const renderButtons = (field: string, options: string[]) => (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-col md:flex-row flex-wrap gap-2">
       {options.map(opt => (
         <button
           key={opt}
           onClick={() => updateData(field, opt)}
-          className={`px-4 py-2 rounded-full text-xs transition-all ${
+          className={`px-4 py-3 md:py-2 rounded-xl md:rounded-full text-sm md:text-xs transition-all text-left md:text-center ${
             (formData as any)[field] === opt 
               ? "bg-emerald text-black font-bold" 
-              : "bg-white/[0.02] border border-white/10 text-white/40 hover:border-white/30"
+              : "bg-white/[0.02] border border-white/10 text-white/60 md:text-white/40 hover:border-white/30"
           }`}
         >
           {opt}
@@ -245,8 +245,8 @@ export default function InstitutionalBriefing() {
                     </div>
                   </div>
                 </div>
-                <div className="flex justify-end pt-4">
-                  <button onClick={nextStep} className="px-8 py-3 bg-white text-black rounded-xl font-bold flex items-center gap-2 hover:bg-emerald transition-colors">
+                <div className="flex flex-col md:flex-row justify-end pt-8 gap-4">
+                  <button onClick={nextStep} className="w-full md:w-auto justify-center px-8 py-4 md:py-3 bg-white text-black rounded-xl font-bold flex items-center gap-2 hover:bg-emerald transition-colors">
                     Continuar <ArrowRight size={16} />
                   </button>
                 </div>
@@ -279,11 +279,11 @@ export default function InstitutionalBriefing() {
                     </div>
                   </div>
                 </div>
-                <div className="flex justify-between pt-4">
-                  <button onClick={prevStep} className="flex items-center gap-2 text-white/40 hover:text-white transition-colors">
+                <div className="flex flex-col-reverse md:flex-row justify-between pt-8 gap-4 md:gap-0">
+                  <button onClick={prevStep} className="w-full md:w-auto justify-center md:justify-start flex items-center gap-2 text-white/40 hover:text-white transition-colors py-4 md:py-0 border border-white/5 md:border-transparent rounded-xl md:rounded-none">
                     <ArrowLeft size={16} /> Voltar
                   </button>
-                  <button onClick={nextStep} className="px-8 py-3 bg-white text-black rounded-xl font-bold flex items-center gap-2 hover:bg-emerald transition-colors">
+                  <button onClick={nextStep} className="w-full md:w-auto justify-center px-8 py-4 md:py-3 bg-white text-black rounded-xl font-bold flex items-center gap-2 hover:bg-emerald transition-colors">
                     Continuar <ArrowRight size={16} />
                   </button>
                 </div>
@@ -320,11 +320,11 @@ export default function InstitutionalBriefing() {
                     </div>
                   </div>
                 </div>
-                <div className="flex justify-between pt-4">
-                  <button onClick={prevStep} className="flex items-center gap-2 text-white/40 hover:text-white transition-colors">
+                <div className="flex flex-col-reverse md:flex-row justify-between pt-8 gap-4 md:gap-0">
+                  <button onClick={prevStep} className="w-full md:w-auto justify-center md:justify-start flex items-center gap-2 text-white/40 hover:text-white transition-colors py-4 md:py-0 border border-white/5 md:border-transparent rounded-xl md:rounded-none">
                     <ArrowLeft size={16} /> Voltar
                   </button>
-                  <button onClick={nextStep} className="px-8 py-3 bg-white text-black rounded-xl font-bold flex items-center gap-2 hover:bg-emerald transition-colors">
+                  <button onClick={nextStep} className="w-full md:w-auto justify-center px-8 py-4 md:py-3 bg-white text-black rounded-xl font-bold flex items-center gap-2 hover:bg-emerald transition-colors">
                     Continuar <ArrowRight size={16} />
                   </button>
                 </div>
@@ -366,11 +366,11 @@ export default function InstitutionalBriefing() {
                     </div>
                   </div>
                 </div>
-                <div className="flex justify-between pt-4">
-                  <button onClick={prevStep} className="flex items-center gap-2 text-white/40 hover:text-white transition-colors">
+                <div className="flex flex-col-reverse md:flex-row justify-between pt-8 gap-4 md:gap-0">
+                  <button onClick={prevStep} className="w-full md:w-auto justify-center md:justify-start flex items-center gap-2 text-white/40 hover:text-white transition-colors py-4 md:py-0 border border-white/5 md:border-transparent rounded-xl md:rounded-none">
                     <ArrowLeft size={16} /> Voltar
                   </button>
-                  <button onClick={nextStep} className="px-8 py-3 bg-white text-black rounded-xl font-bold flex items-center gap-2 hover:bg-emerald transition-colors">
+                  <button onClick={nextStep} className="w-full md:w-auto justify-center px-8 py-4 md:py-3 bg-white text-black rounded-xl font-bold flex items-center gap-2 hover:bg-emerald transition-colors">
                     Continuar <ArrowRight size={16} />
                   </button>
                 </div>
@@ -415,11 +415,11 @@ export default function InstitutionalBriefing() {
                     </div>
                   </div>
                 </div>
-                <div className="flex justify-between pt-4">
-                  <button onClick={prevStep} className="flex items-center gap-2 text-white/40 hover:text-white transition-colors">
+                <div className="flex flex-col-reverse md:flex-row justify-between pt-8 gap-4 md:gap-0">
+                  <button onClick={prevStep} className="w-full md:w-auto justify-center md:justify-start flex items-center gap-2 text-white/40 hover:text-white transition-colors py-4 md:py-0 border border-white/5 md:border-transparent rounded-xl md:rounded-none">
                     <ArrowLeft size={16} /> Voltar
                   </button>
-                  <button onClick={nextStep} className="px-8 py-3 bg-white text-black rounded-xl font-bold flex items-center gap-2 hover:bg-emerald transition-colors">
+                  <button onClick={nextStep} className="w-full md:w-auto justify-center px-8 py-4 md:py-3 bg-white text-black rounded-xl font-bold flex items-center gap-2 hover:bg-emerald transition-colors">
                     Continuar <ArrowRight size={16} />
                   </button>
                 </div>
@@ -481,14 +481,14 @@ export default function InstitutionalBriefing() {
                     </div>
                   </div>
                 </div>
-                <div className="flex justify-between pt-4">
-                  <button onClick={prevStep} className="flex items-center gap-2 text-white/40 hover:text-white transition-colors">
+                <div className="flex flex-col-reverse md:flex-row justify-between pt-8 gap-4 md:gap-0">
+                  <button onClick={prevStep} className="w-full md:w-auto justify-center md:justify-start flex items-center gap-2 text-white/40 hover:text-white transition-colors py-4 md:py-0 border border-white/5 md:border-transparent rounded-xl md:rounded-none">
                     <ArrowLeft size={16} /> Voltar
                   </button>
                   <button 
                     onClick={nextStep} 
                     disabled={!formData.contato_nome || !formData.contato_wpp || !formData.orcamento}
-                    className="px-8 py-3 bg-emerald text-black rounded-xl font-bold flex items-center gap-2 hover:bg-emerald-bright transition-all disabled:opacity-20 shadow-[0_0_20px_rgba(16,185,129,0.2)] hover:shadow-[0_0_30px_rgba(16,185,129,0.4)]"
+                    className="w-full md:w-auto justify-center px-8 py-4 md:py-3 bg-emerald text-black rounded-xl font-bold flex items-center gap-2 hover:bg-emerald-bright transition-all disabled:opacity-20 shadow-[0_0_20px_rgba(16,185,129,0.2)] hover:shadow-[0_0_30px_rgba(16,185,129,0.4)]"
                   >
                     Analisar Briefing <ArrowRight size={16} />
                   </button>
