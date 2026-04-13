@@ -257,7 +257,7 @@ export const projects: ProjectData[] = [
     },
     strategy: {
       philosophy: "A VØYDRA não patrocina vitrines; procuramos soldados. Gente com sede de vitória que ama levantar peso quando ninguém está olhando. Aqui, o patrocínio é conquistado no campo de batalha, não solicitado por formulários.",
-      pdfPath: "/images/voydra/Estrategia Principal/Processo de Patrocinio - VØYDRA.pdf",
+      pdfPath: "https://drive.google.com/file/d/1XlnVwopCba3QzsT65g7pnQO5D14rOdQh/view?usp=sharing",
       levels: [
         {
           name: "DEADGRIP",
