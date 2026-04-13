@@ -7,17 +7,17 @@ const features = [
   {
     icon: <Terminal size={24} className="text-emerald" />,
     title: "Sistemas Core",
-    desc: "Arquiteturas resilientes desenhadas para não falhar sob carga de tráfego. Construídas primariamente com Java e Spring Boot.",
+    desc: "Arquiteturas construídas para não ceder sob pressão. Java e Spring Boot como espinha dorsal de produtos que precisam existir quando importa.",
   },
   {
     icon: <Layout size={24} className="text-emerald" />,
     title: "Interface Tática",
-    desc: "Aplicações de alto impacto comercial que convertem, engajam e oferecem uma experiência visual imersiva (Next.js/React).",
+    desc: "Não é sobre ser bonito. É sobre converter. Next.js/React com experiência visual que reduz fricção e aumenta receita.",
   },
   {
     icon: <Share2 size={24} className="text-emerald" />,
     title: "Engenharia de Dados",
-    desc: "Extração, transformação e análise de grandes volumes para tomadas de decisão baseadas em fatos, não em intuição.",
+    desc: "Intuição é cara demais. Extração, transformação e análise de dados para que cada decisão tenha evidência embaixo.",
   }
 ];
 
@@ -43,10 +43,10 @@ export default function FeatureGrid() {
         
         <div className="text-center mb-24">
           <h2 className="text-5xl md:text-6xl font-serif tracking-tighter mb-4 text-cyber-white">
-            Engenharia <span className="italic text-emerald">Estratégica</span>
+            Engenharia com <span className="italic text-emerald">Intenção</span>
           </h2>
-          <p className="text-cyber-white/50 text-base font-sans max-w-lg mx-auto">
-            Abordagem cirúrgica para desenvolvimento. Foco no LTV, estabilidade de arquitetura e velocidade de execução.
+          <p className="text-cyber-white/50 text-base font-sans max-w-2xl mx-auto">
+            Não construo sistemas. Construo ativos. Cada linha de código é uma decisão de negócio — desenhada para converter, escalar e durar.
           </p>
         </div>
 

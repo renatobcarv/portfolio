@@ -213,8 +213,9 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
         {project.gallery && (
           <div className="mb-40 space-y-40">
             {/* Design Showcase */}
-            <section>
-              <motion.div
+            {!project.infoproducts && (
+              <section>
+                <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -249,7 +250,8 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
                   </motion.div>
                 ))}
               </div>
-            </section>
+              </section>
+            )}
 
             {/* Video Showcase */}
             <section>
@@ -276,10 +278,12 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
                   >
                     <video
                       src={path}
+                      poster={path.replace('.mp4', '-poster.jpg')}
                       muted
                       autoPlay
                       loop
                       playsInline
+                      preload="metadata"
                       className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
                     />
                     <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black via-black/40 to-transparent">
@@ -750,6 +754,7 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
                         src={product.image} 
                         alt={product.name}
                         fill
+                        sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
                         className="object-cover group-hover:scale-105 transition-transform duration-700"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
@@ -761,6 +766,17 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
                           {product.status === 'deprecated' ? 'Descontinuado' : 'Ativo'}
                         </span>
                       </div>
+                    </div>
+                    <div className="mt-4 flex flex-col gap-2">
+                      <a 
+                        href={product.link || "#"}
+                        target="_blank"
+                        className="inline-flex items-center gap-2 text-[10px] font-mono tracking-widest uppercase text-emerald/60 hover:text-emerald transition-colors"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <Globe size={12} />
+                        <span>Visualizar Projeto</span>
+                      </a>
                     </div>
                   </motion.div>
                 ))}
@@ -827,14 +843,15 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: idx * 0.1 }}
-                      className="aspect-video rounded-xl overflow-hidden border border-white/5 hover:border-emerald/10 transition-all cursor-pointer group"
+                      className="relative aspect-video rounded-xl overflow-hidden border border-white/5 bg-white/[0.02] hover:border-emerald/10 transition-all cursor-pointer group"
                       onClick={() => { setLightboxImages(project.gallery!.social); setLightboxIndex(idx); }}
                     >
                       <Image 
                         src={img} 
                         alt={`Área de Membros ${idx + 1}`}
                         fill
-                        className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-contain p-2 group-hover:scale-[1.02] transition-transform duration-700"
                       />
                     </motion.div>
                   ))}

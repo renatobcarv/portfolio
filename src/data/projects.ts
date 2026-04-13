@@ -12,6 +12,7 @@ export interface ProjectData {
   id: string;
   name: string;
   role: string;
+  thumbnail?: string;
   summary: string;
   metrics: ProjectMetric[];
   stack: string[];
@@ -53,7 +54,7 @@ export interface ProjectData {
   };
   infoproducts?: {
     process: { step: string; description: string }[];
-    products: { name: string; status: 'active' | 'deprecated'; image: string }[];
+    products: { name: string; status: 'active' | 'deprecated'; image: string; link?: string }[];
     chapters: { title: string; content: string }[];
   }
 }
@@ -63,6 +64,7 @@ export const projects: ProjectData[] = [
     id: "valence",
     name: "Valence 2.0",
     role: "Revenue Intelligence & SaaS Architecture",
+    thumbnail: "/images/valence/dashboard/1.png",
     summary: "O sistema operacional de inteligência de receita que detecta e recupera lucro morto de forma automatizada.",
     metrics: [
       { label: "ROI MÉDIO", value: "12X" },
@@ -201,6 +203,7 @@ export const projects: ProjectData[] = [
     id: "voydra",
     name: "VØYDRA",
     role: "Branding & Estratégia Orgânica",
+    thumbnail: "/images/voydra/8.jpeg",
     summary: "Escalabilidade infinita via posicionamento de marca, tráfego orgânico e rede de patrocínios proprietária.",
     metrics: [
       { label: "STATUS", value: "DEPRECATED" },
@@ -292,6 +295,7 @@ export const projects: ProjectData[] = [
     id: "growth-engine",
     name: "Growth Engine",
     role: "Automações & Pipelines de Dados",
+    thumbnail: "/images/infoprodutos/area de membros/1.png",
     summary: "Pipelines de dados estratégicos que operam no pulso do tráfego pago para maximizar conversão.",
     metrics: [
       { label: "DATA POINTS", value: "1M+" },
@@ -313,6 +317,7 @@ export const projects: ProjectData[] = [
     id: "apex-noir",
     name: "Apex Noir 2.0",
     role: "Design System Architect",
+    thumbnail: "/images/valence/landingpage/1.png",
     summary: "O design system de alta autoridade que define a identidade visual da Valence e o padrão de SaaS B2B premium.",
     metrics: [
       { label: "COMPONENTES", value: "40+" },
@@ -401,7 +406,8 @@ export const projects: ProjectData[] = [
     id: "infoprodutos",
     name: "Infoprodutos",
     role: "Operador de Produtos Digitais",
-    summary: "Validação, construção e escala de produtos digitais com lógica de operador — não de creator.",
+    thumbnail: "/images/infoprodutos/Desafio Selva Completo.png",
+    summary: "Validation, construction e escala de produtos digitais com lógica de operador — não de creator.",
     metrics: [
       { label: "PRODUTOS", value: "7+" },
       { label: "MODELO", value: "MVP" },
@@ -440,13 +446,13 @@ export const projects: ProjectData[] = [
         { step: "ESCALAR", description: "Escala só após CAC validado e LTV mapeado. ROAS como métrica de saúde, não de vaidade." }
       ],
       products: [
-        { name: "Athena Power System", status: "deprecated", image: "/images/infoprodutos/2026 © Athena Power System.png" },
-        { name: "Flow Prime", status: "deprecated", image: "/images/infoprodutos/Flow Prime.png" },
-        { name: "Uma Vida em 30 Dias", status: "deprecated", image: "/images/infoprodutos/Uma vida em 30 dias.png" },
-        { name: "Desafio Selva", status: "deprecated", image: "/images/infoprodutos/Desafio Selva Completo.png" },
-        { name: "10KG de Massa Muscular", status: "deprecated", image: "/images/infoprodutos/COMO GANHAR 10KG DE MASSA MUSCULAR.pdf.pdf.png" },
-        { name: "Carisma Sedutor", status: "deprecated", image: "/images/infoprodutos/Carisma Sedutor.png" },
-        { name: "A Arte da Linguagem Corporal", status: "deprecated", image: "/images/infoprodutos/BÔNUS - A Arte da Linguagem Corporal.pdf.png" }
+        { name: "Athena Power System", status: "deprecated", image: "/images/infoprodutos/2026 © Athena Power System.png", link: "https://drive.google.com/drive/folders/1YoXNv3kqs_csaPzxZxQcLFssBwSTfjUL?usp=sharing" },
+        { name: "Flow Prime", status: "deprecated", image: "/images/infoprodutos/Flow Prime.png", link: "https://drive.google.com/drive/folders/1YoXNv3kqs_csaPzxZxQcLFssBwSTfjUL?usp=sharing" },
+        { name: "Uma Vida em 30 Dias", status: "deprecated", image: "/images/infoprodutos/Uma vida em 30 dias.png", link: "https://drive.google.com/drive/folders/1YoXNv3kqs_csaPzxZxQcLFssBwSTfjUL?usp=sharing" },
+        { name: "Desafio Selva", status: "deprecated", image: "/images/infoprodutos/Desafio Selva Completo.png", link: "https://drive.google.com/drive/folders/1YoXNv3kqs_csaPzxZxQcLFssBwSTfjUL?usp=sharing" },
+        { name: "10KG de Massa Muscular", status: "deprecated", image: "/images/infoprodutos/COMO GANHAR 10KG DE MASSA MUSCULAR.pdf.pdf.png", link: "https://drive.google.com/drive/folders/1YoXNv3kqs_csaPzxZxQcLFssBwSTfjUL?usp=sharing" },
+        { name: "Carisma Sedutor", status: "deprecated", image: "/images/infoprodutos/Carisma Sedutor.png", link: "https://drive.google.com/drive/folders/1YoXNv3kqs_csaPzxZxQcLFssBwSTfjUL?usp=sharing" },
+        { name: "A Arte da Linguagem Corporal", status: "deprecated", image: "/images/infoprodutos/BÔNUS - A Arte da Linguagem Corporal.pdf.png", link: "https://drive.google.com/drive/folders/1YoXNv3kqs_csaPzxZxQcLFssBwSTfjUL?usp=sharing" }
       ],
       chapters: [
         {

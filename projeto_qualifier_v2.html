@@ -1,0 +1,256 @@
+
+<style>
+  .q-wrap{padding:1.5rem 0;font-family:var(--font-sans)}
+  .q-title{font-size:22px;font-weight:500;color:var(--color-text-primary);margin:0 0 6px}
+  .q-sub{font-size:15px;color:var(--color-text-secondary);margin:0 0 2rem}
+  .step{display:none}
+  .step.active{display:block}
+  .cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:1.5rem}
+  .cat-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem;cursor:pointer;transition:border-color 0.15s;position:relative}
+  .cat-card:hover{border-color:var(--color-border-primary)}
+  .cat-card.selected{border:1.5px solid #534AB7;background:#EEEDFE}
+  .cat-icon{font-size:20px;margin-bottom:8px}
+  .cat-label{font-size:13px;font-weight:500;color:var(--color-text-primary)}
+  .cat-desc{font-size:11px;color:var(--color-text-secondary);margin-top:4px;line-height:1.4}
+  .badge-hot{position:absolute;top:8px;right:8px;background:#534AB7;color:#EEEDFE;font-size:10px;padding:2px 8px;border-radius:999px}
+  .q-label{font-size:15px;font-weight:500;color:var(--color-text-primary);margin:0 0 10px}
+  .q-input{width:100%;box-sizing:border-box;padding:10px 12px;font-size:15px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:var(--color-background-primary);color:var(--color-text-primary);margin-bottom:1rem;resize:vertical}
+  .q-input:focus{outline:none;border-color:#534AB7}
+  .opt-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1rem}
+  .opt-btn{padding:7px 14px;font-size:13px;border:0.5px solid var(--color-border-secondary);border-radius:999px;background:var(--color-background-primary);color:var(--color-text-primary);cursor:pointer;transition:all 0.12s}
+  .opt-btn:hover{border-color:var(--color-border-primary)}
+  .opt-btn.sel{background:#EEEDFE;border-color:#534AB7;color:#3C3489}
+  .btn-next{display:inline-block;padding:10px 24px;background:var(--color-background-primary);border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);font-size:14px;color:var(--color-text-primary);cursor:pointer;margin-top:8px}
+  .btn-next:hover{background:var(--color-background-secondary)}
+  .btn-primary{background:#534AB7;color:#EEEDFE;border-color:#534AB7}
+  .btn-primary:hover{background:#3C3489}
+  .progress{display:flex;gap:6px;margin-bottom:2rem;align-items:center}
+  .prog-dot{width:6px;height:6px;border-radius:50%;background:var(--color-border-secondary);transition:background 0.2s}
+  .prog-dot.done{background:#534AB7}
+  .prog-label{font-size:12px;color:var(--color-text-secondary);margin-left:8px}
+  .summary-box{background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:1rem 1.25rem;margin-bottom:1.5rem;font-size:14px;color:var(--color-text-secondary);line-height:2}
+  .summary-box strong{color:var(--color-text-primary);font-weight:500}
+  .wpp-btn{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;background:#25D366;border:none;border-radius:var(--border-radius-md);font-size:15px;font-weight:500;color:#fff;cursor:pointer;text-decoration:none}
+  .wpp-btn:hover{background:#1ebe5d}
+  .divider{border:none;border-top:0.5px solid var(--color-border-tertiary);margin:1.5rem 0}
+  .pkg-box{background:linear-gradient(135deg,#EEEDFE 0%,#E1F5EE 100%);border:1.5px solid #534AB7;border-radius:var(--border-radius-lg);padding:1.25rem;margin-bottom:1rem}
+  .pkg-box{background:#EEEDFE;border:1.5px solid #534AB7;border-radius:var(--border-radius-lg);padding:1.25rem;margin-bottom:1rem}
+  .pkg-title{font-size:15px;font-weight:500;color:#3C3489;margin:0 0 6px}
+  .pkg-items{font-size:13px;color:#534AB7;line-height:1.9}
+  .pkg-tag{display:inline-block;background:#534AB7;color:#EEEDFE;font-size:11px;padding:2px 10px;border-radius:999px;margin-left:8px;vertical-align:middle}
+</style>
+
+<div class="q-wrap">
+  <h2 class="sr-only">Qualificador de projeto — escolha o que quer construir</h2>
+  <div class="progress" id="progress"></div>
+
+  <!-- Step 1: categoria -->
+  <div class="step active" id="step-1">
+    <p class="q-title">O que você quer construir?</p>
+    <p class="q-sub">Escolha a categoria ou o pacote completo.</p>
+    <div class="cat-grid">
+      <div class="cat-card" data-val="Site Institucional" onclick="selectCat(this)">
+        <div class="cat-icon">🏢</div>
+        <div class="cat-label">Site institucional</div>
+        <div class="cat-desc">Presença digital sólida e profissional</div>
+      </div>
+      <div class="cat-card" data-val="Landing Page" onclick="selectCat(this)">
+        <div class="cat-icon">🎯</div>
+        <div class="cat-label">Landing page</div>
+        <div class="cat-desc">Página focada em converter visitante em cliente</div>
+      </div>
+      <div class="cat-card" data-val="Produto Digital (SaaS, curso, membership)" onclick="selectCat(this)">
+        <div class="cat-icon">📦</div>
+        <div class="cat-label">Produto digital</div>
+        <div class="cat-desc">SaaS, curso, membership ou infoproduto</div>
+      </div>
+      <div class="cat-card" data-val="Tráfego Pago / Growth" onclick="selectCat(this)">
+        <div class="cat-icon">📈</div>
+        <div class="cat-label">Tráfego pago</div>
+        <div class="cat-desc">Meta Ads, Google Ads, escala de receita</div>
+      </div>
+      <div class="cat-card" data-val="Automações e IA" onclick="selectCat(this)">
+        <div class="cat-icon">🤖</div>
+        <div class="cat-label">Automações e IA</div>
+        <div class="cat-desc">Fluxos inteligentes que trabalham por você</div>
+      </div>
+      <div class="cat-card" data-val="Pacote Empresa Completo (Site + Tráfego Pago + Automações com IA)" onclick="selectCat(this)">
+        <div class="cat-icon">🚀</div>
+        <div class="cat-label">Pacote Empresa</div>
+        <div class="cat-desc">Tudo junto: site, tráfego e IA</div>
+        <div class="badge-hot">Completo</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 2: negócio -->
+  <div class="step" id="step-2">
+    <p class="q-title">Sobre o seu negócio</p>
+    <div id="pkg-info"></div>
+    <div class="q-label">Qual é o seu segmento ou nicho?</div>
+    <input class="q-input" id="segmento" placeholder="Ex: clínica odontológica, e-commerce, escritório de advocacia..." />
+    <div class="q-label">Situação atual do negócio</div>
+    <div class="opt-row" id="opt-vendendo">
+      <button class="opt-btn" onclick="toggleOpt(this,'vendendo')">Novo negócio, ainda não lancei</button>
+      <button class="opt-btn" onclick="toggleOpt(this,'vendendo')">Já vendo, quero crescer</button>
+      <button class="opt-btn" onclick="toggleOpt(this,'vendendo')">Tenho produto mas não escala</button>
+      <button class="opt-btn" onclick="toggleOpt(this,'vendendo')">Empresa consolidada, quero modernizar</button>
+    </div>
+    <button class="btn-next" onclick="goStep(3)">Continuar →</button>
+  </div>
+
+  <!-- Step 3: objetivo -->
+  <div class="step" id="step-3">
+    <p class="q-title">Qual é o objetivo principal?</p>
+    <div class="q-label">O que você quer alcançar com esse projeto?</div>
+    <div class="opt-row" id="opt-objetivo">
+      <button class="opt-btn" onclick="toggleOpt(this,'objetivo')">Atrair mais clientes</button>
+      <button class="opt-btn" onclick="toggleOpt(this,'objetivo')">Vender diretamente online</button>
+      <button class="opt-btn" onclick="toggleOpt(this,'objetivo')">Construir autoridade e marca</button>
+      <button class="opt-btn" onclick="toggleOpt(this,'objetivo')">Lançar e validar produto</button>
+      <button class="opt-btn" onclick="toggleOpt(this,'objetivo')">Reduzir custo operacional com IA</button>
+      <button class="opt-btn" onclick="toggleOpt(this,'objetivo')">Escalar o que já funciona</button>
+      <button class="opt-btn" onclick="toggleOpt(this,'objetivo')">Automatizar atendimento e follow-up</button>
+    </div>
+    <div class="q-label" style="margin-top:1rem">Prazo</div>
+    <div class="opt-row" id="opt-prazo">
+      <button class="opt-btn" onclick="toggleOpt(this,'prazo')">Urgente — menos de 1 mês</button>
+      <button class="opt-btn" onclick="toggleOpt(this,'prazo')">1 a 3 meses</button>
+      <button class="opt-btn" onclick="toggleOpt(this,'prazo')">3 a 6 meses</button>
+      <button class="opt-btn" onclick="toggleOpt(this,'prazo')">Sem prazo definido</button>
+    </div>
+    <button class="btn-next" onclick="goStep(4)">Continuar →</button>
+  </div>
+
+  <!-- Step 4: detalhes -->
+  <div class="step" id="step-4">
+    <p class="q-title">Detalhes do projeto</p>
+    <div class="q-label">Descreva o projeto em poucas linhas</div>
+    <textarea class="q-input" id="descricao" rows="4" placeholder="O que você vende, para quem, qual dor resolve, o que já tentou..."></textarea>
+    <div class="q-label">Referências visuais ou concorrentes que admira</div>
+    <input class="q-input" id="referencias" placeholder="Links, nomes de marcas, sites..." />
+    <div class="q-label">Investimento disponível</div>
+    <div class="opt-row" id="opt-budget">
+      <button class="opt-btn" onclick="toggleOpt(this,'budget')">Até R$ 3k</button>
+      <button class="opt-btn" onclick="toggleOpt(this,'budget')">R$ 3k – R$ 10k</button>
+      <button class="opt-btn" onclick="toggleOpt(this,'budget')">R$ 10k – R$ 30k</button>
+      <button class="opt-btn" onclick="toggleOpt(this,'budget')">Acima de R$ 30k</button>
+      <button class="opt-btn" onclick="toggleOpt(this,'budget')">Prefiro discutir na conversa</button>
+    </div>
+    <div class="q-label" style="margin-top:1rem">Seu nome e melhor contato</div>
+    <input class="q-input" id="nome" placeholder="Nome" />
+    <input class="q-input" id="contato" placeholder="E-mail ou WhatsApp" />
+    <button class="btn-next btn-primary" onclick="goSummary()">Ver resumo e enviar →</button>
+  </div>
+
+  <!-- Step 5: resumo -->
+  <div class="step" id="step-5">
+    <p class="q-title">Tudo certo.</p>
+    <p class="q-sub">Aqui está o resumo do que você quer construir.</p>
+    <div class="summary-box" id="summary-content"></div>
+    <a class="wpp-btn" id="wpp-link" href="#" target="_blank">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Enviar para WhatsApp
+    </a>
+    <hr class="divider">
+    <button class="btn-next" onclick="resetForm()" style="font-size:13px;color:var(--color-text-secondary)">← Recomeçar</button>
+  </div>
+</div>
+
+<script>
+const WPP_NUMBER = '5561996381002';
+const state = {categoria:'',vendendo:'',objetivo:'',prazo:'',descricao:'',referencias:'',budget:'',segmento:'',nome:'',contato:''};
+const stepLabels = ['Categoria','Negócio','Objetivo','Detalhes','Resumo'];
+
+const PKG_INFO = `<div class="pkg-box">
+  <div class="pkg-title">🚀 Pacote Empresa Completo <span class="pkg-tag">Selecionado</span></div>
+  <div class="pkg-items">
+    ✦ Site institucional profissional e responsivo<br>
+    ✦ Tráfego pago (Meta Ads + Google Ads) com estratégia de growth<br>
+    ✦ Automações com IA para captação, atendimento e follow-up de clientes
+  </div>
+</div>`;
+
+function updateProgress(current) {
+  const p = document.getElementById('progress');
+  p.innerHTML = '';
+  for (let i = 1; i <= 5; i++) {
+    const d = document.createElement('div');
+    d.className = 'prog-dot' + (i <= current ? ' done' : '');
+    p.appendChild(d);
+  }
+  const lbl = document.createElement('span');
+  lbl.className = 'prog-label';
+  lbl.textContent = stepLabels[current - 1] + ' — ' + current + ' de 5';
+  p.appendChild(lbl);
+}
+
+function selectCat(el) {
+  document.querySelectorAll('.cat-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  state.categoria = el.dataset.val;
+  const info = document.getElementById('pkg-info');
+  info.innerHTML = state.categoria.startsWith('Pacote') ? PKG_INFO : '';
+  setTimeout(() => goStep(2), 280);
+}
+
+function toggleOpt(el, key) {
+  el.parentElement.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('sel'));
+  el.classList.add('sel');
+  state[key] = el.textContent.trim();
+}
+
+function goStep(n) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.getElementById('step-' + n).classList.add('active');
+  updateProgress(n);
+}
+
+function goSummary() {
+  state.descricao = document.getElementById('descricao').value.trim();
+  state.referencias = document.getElementById('referencias').value.trim();
+  state.segmento = document.getElementById('segmento').value.trim();
+  state.nome = document.getElementById('nome').value.trim();
+  state.contato = document.getElementById('contato').value.trim();
+
+  document.getElementById('summary-content').innerHTML = `
+    <strong>Nome:</strong> ${state.nome || '—'}<br>
+    <strong>Contato:</strong> ${state.contato || '—'}<br>
+    <strong>Projeto:</strong> ${state.categoria || '—'}<br>
+    <strong>Segmento:</strong> ${state.segmento || '—'}<br>
+    <strong>Situação:</strong> ${state.vendendo || '—'}<br>
+    <strong>Objetivo:</strong> ${state.objetivo || '—'}<br>
+    <strong>Prazo:</strong> ${state.prazo || '—'}<br>
+    <strong>Investimento:</strong> ${state.budget || '—'}<br>
+    <strong>Descrição:</strong> ${state.descricao || '—'}<br>
+    <strong>Referências:</strong> ${state.referencias || '—'}
+  `;
+
+  const txt = encodeURIComponent(
+    `Olá! Quero conversar sobre um projeto.\n\n` +
+    `👤 *Nome:* ${state.nome || '—'}\n` +
+    `📱 *Contato:* ${state.contato || '—'}\n\n` +
+    `🗂 *Projeto:* ${state.categoria || '—'}\n` +
+    `🏭 *Segmento:* ${state.segmento || '—'}\n` +
+    `📊 *Situação atual:* ${state.vendendo || '—'}\n` +
+    `🎯 *Objetivo:* ${state.objetivo || '—'}\n` +
+    `⏱ *Prazo:* ${state.prazo || '—'}\n` +
+    `💰 *Investimento:* ${state.budget || '—'}\n\n` +
+    `📝 *Descrição:*\n${state.descricao || '—'}\n\n` +
+    `🔗 *Referências:* ${state.referencias || '—'}`
+  );
+
+  document.getElementById('wpp-link').href = `https://wa.me/${WPP_NUMBER}?text=${txt}`;
+  goStep(5);
+}
+
+function resetForm() {
+  Object.keys(state).forEach(k => state[k] = '');
+  ['descricao','referencias','segmento','nome','contato'].forEach(id => document.getElementById(id).value = '');
+  document.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('sel'));
+  document.querySelectorAll('.cat-card').forEach(c => c.classList.remove('selected'));
+  goStep(1);
+}
+
+updateProgress(1);
+</script>

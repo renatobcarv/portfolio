@@ -6,18 +6,18 @@ import Image from "next/image";
 const steps = [
   {
     num: "01",
-    title: "Lógica de Negócio Primeiro",
-    desc: "Enquanto a maioria foca apenas na stack, eu foco no vazamento de dinheiro. Meu código é desenhado para servir aos objetivos comerciais.",
+    title: "Fase 1 — Estratégia antes de código",
+    desc: "A maioria perde dinheiro construindo a coisa certa da maneira errada. Antes de qualquer linha de código, mapeamos o modelo de negócio, validamos as hipóteses críticas e definimos a arquitetura que vai sustentar crescimento — não travar nele. Canvas, fluxo de receita, LTV e unit economics na mesa antes do primeiro commit.",
   },
   {
     num: "02",
-    title: "Execução Híbrida Estratégica",
-    desc: "Uso IA para velocidade (10x), mas a segurança e a arquitetura de dados são puramente humanas. Equilíbrio entre escala e precisão.",
+    title: "Fase 2 — MVP com precisão cirúrgica",
+    desc: "MVP não é produto incompleto. É a menor superfície possível que prova o maior risco possível. Entrego sistemas core em Java/Spring Boot e interfaces em Next.js/React construídos para converter desde o primeiro usuário — sem dívida técnica que vai te cobrar juros compostos mais tarde.",
   },
   {
     num: "03",
-    title: "Ordem como Crescimento",
-    desc: "Sistemas que impõem ordem, consistência e previsibilidade. A tecnologia é o meio, mas o resultado comercial é o fim.",
+    title: "Fase 3 — Lançamento e Escala",
+    desc: "Produto no ar é onde a maioria improvisa. Aqui é onde o trabalho anterior se paga. Arquiteturas resilientes que não falham sob carga, pipelines de dados que transformam comportamento de usuário em decisão, e iteração orientada a número — não a opinião.",
   }
 ];
 
@@ -48,7 +48,7 @@ export default function Methodology() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                  <p className="text-black/60 text-base leading-relaxed max-w-md">{step.desc}</p>
+                  <p className="text-black/60 text-base leading-relaxed max-w-xl">{step.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -77,7 +77,7 @@ export default function Methodology() {
             >
               <div className="text-black font-bold text-lg mb-2">Renato B. Carvalho</div>
               <p className="text-black/70 text-sm italic leading-relaxed">
-                &quot;Meu papel não é apenas escrever código, é construir pontes entre sistemas complexos e resultados tangíveis.&quot;
+                &quot;Transformo sistemas complexos em processos simples que geram mais clientes, mais controle e mais receita.&quot;
               </p>
               <div className="mt-4 flex gap-1">
                  {[1,2,3,4,5].map(i => (

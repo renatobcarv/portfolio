@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { SpotlightCard } from "@/components/ui/SpotlightCard";
 import { projects } from "@/data/projects";
 import Link from "next/link";
+import Image from "next/image";
 
 // Raw SVG for Github to ensure stability across library versions
 const GithubIcon = ({ size = 18 }: { size?: number }) => (
@@ -48,7 +49,7 @@ const itemVariants = {
 export default function Projects() {
   return (
     <section id="projetos" className="py-24 px-6 relative bg-[#050505]">
-      <div className="max-w-5xl mx-auto relative z-10">
+      <div className="max-w-6xl mx-auto relative z-10">
         {/* Header Section */}
         <div className="mb-20">
           <motion.div 
@@ -83,79 +84,81 @@ export default function Projects() {
         >
           {projects.map((project) => (
             <motion.div key={project.id} variants={itemVariants}>
-              <SpotlightCard className="p-6 md:p-8 border border-white/5 hover:border-emerald/20 transition-colors duration-500">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
+              <SpotlightCard className="p-0 border border-white/5 hover:border-emerald/20 transition-colors duration-500 overflow-hidden group/card text-left">
+                <div className="flex flex-col md:flex-row min-h-[220px]">
                   {/* Left content */}
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-3">
+                  <div className="flex-1 p-8 md:p-10 relative z-20">
+                    <div className="flex items-center gap-3 mb-4">
                        <span className="font-mono text-[9px] tracking-widest text-emerald uppercase font-bold">
                          {project.role}
                        </span>
-                       <div className="h-px w-8 bg-white/5" />
+                       <div className="h-px w-8 bg-white/10" />
                     </div>
                     
-                    <h3 className="text-2xl md:text-3xl font-serif text-white tracking-tightest mb-3">
+                    <h3 className="text-2xl md:text-4xl font-serif text-white tracking-tightest mb-4">
                       {project.name}
                     </h3>
                     
-                    <p className="text-cyber-white/40 text-sm leading-relaxed font-sans max-w-lg">
+                    <p className="text-cyber-white/40 text-[13px] leading-relaxed font-sans max-w-lg mb-8">
                       {project.summary}
                     </p>
-                  </div>
 
-                  {/* Right content - Metrics & Action */}
-                  <div className="flex flex-wrap md:flex-nowrap items-center gap-8 md:gap-12">
-                    <div className="flex gap-8">
-                      {project.metrics.map((metric, i) => (
-                        <div key={i} className="flex flex-col">
-                          <span className="text-xl md:text-2xl font-mono text-white/80 font-bold tracking-tightest">
-                            {metric.value}
-                          </span>
-                          <span className="text-[8px] font-mono tracking-widest text-white/30 uppercase mt-1">
-                            {metric.label}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
+                    <div className="flex items-center gap-4 flex-wrap">
+                      <div className="flex gap-6 mr-4">
+                        {project.metrics.map((metric, i) => (
+                          <div key={i} className="flex flex-col">
+                            <span className="text-xl font-mono text-white/80 font-bold tracking-tightest">
+                              {metric.value}
+                            </span>
+                            <span className="text-[8px] font-mono tracking-widest text-white/30 uppercase">
+                              {metric.label}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
 
-                    <div className="flex items-center gap-4 lg:gap-6">
-                      {project.github && (
-                        <a 
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="p-3 rounded-full bg-white/5 border border-white/5 text-white/40 hover:text-emerald hover:border-emerald/20 hover:bg-emerald/5 transition-all duration-300"
-                          title="Ver Repositório"
+                      <div className="h-4 w-px bg-white/10 hidden md:block" />
+
+                      <div className="flex items-center gap-5">
+                        {project.github && (
+                          <a 
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-white/30 hover:text-emerald transition-colors"
+                            title="Ver Repositório"
+                          >
+                            <GithubIcon size={18} />
+                          </a>
+                        )}
+                        
+                        <Link 
+                          href={project.link}
+                          className="flex items-center gap-2 group/btn py-2"
                         >
-                          <GithubIcon size={18} />
-                        </a>
-                      )}
-                      
-                      {project.liveUrl && (
-                        <a 
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-emerald/10 border border-emerald/20 text-emerald hover:bg-emerald/20 transition-all duration-300 group/site"
-                        >
-                          <span className="font-mono text-[9px] tracking-widest uppercase font-bold">Ver Site</span>
-                          <svg className="w-3.5 h-3.5 group-hover/site:translate-x-0.5 group-hover/site:-translate-y-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                          </svg>
-                        </a>
-                      )}
-
-                      <Link 
-                        href={project.link}
-                        className="flex items-center gap-2 group/btn py-2 px-1"
-                      >
-                        <span className="font-mono text-[10px] tracking-widest uppercase text-white/50 group-hover/btn:text-emerald transition-colors link-underline">
-                          Saber Mais
-                        </span>
-                        <ArrowRight size={14} className="text-emerald -rotate-45 group-hover/btn:rotate-0 transition-transform duration-300" />
-                      </Link>
+                          <span className="font-mono text-[10px] tracking-widest uppercase text-white/50 group-hover/btn:text-emerald transition-colors link-underline">
+                            Saber Mais
+                          </span>
+                          <ArrowRight size={14} className="text-emerald -rotate-45 group-hover/btn:rotate-0 transition-transform duration-300" />
+                        </Link>
+                      </div>
                     </div>
                   </div>
+
+                  {/* Right Thumbnail */}
+                  {project.thumbnail && (
+                    <div className="relative w-full md:w-[40%] h-[200px] md:h-auto overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-r from-[#050505] to-transparent z-10 hidden md:block" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/20 to-transparent z-10 md:hidden" />
+                      <Image 
+                        src={project.thumbnail} 
+                        alt={project.name}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 500px"
+                        className="object-cover grayscale opacity-40 group-hover/card:grayscale-0 group-hover/card:opacity-60 transition-all duration-700 group-hover/card:scale-110"
+                      />
+                    </div>
+                  )}
                 </div>
               </SpotlightCard>
             </motion.div>

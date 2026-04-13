@@ -79,6 +79,7 @@ export default function Hero() {
                 src="/images/perfilimage.jpeg" 
                 alt="Renato B. Carvalho" 
                 fill 
+                priority
                 className="object-cover object-center scale-105"
               />
             </motion.div>
