@@ -88,7 +88,7 @@ export default function BentoFeatures() {
 
             <div className="mt-8 p-6 glass rounded-3xl border-white/5 bg-lime/5">
               <div className="text-[10px] uppercase tracking-widest opacity-50 mb-2">Philosophy</div>
-              <div className="text-sm italic text-white/80">"Código é o veículo, <br/> lucro é o destino."</div>
+              <div className="text-sm italic text-white/80">&quot;Código é o veículo, <br/> lucro é o destino.&quot;</div>
             </div>
           </div>
 

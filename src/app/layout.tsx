@@ -4,7 +4,9 @@ import { Newsreader, Inter, Space_Grotesk, Montserrat } from "next/font/google";
 const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
+  display: 'swap',
 });
+
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import SmoothScroll from "@/components/providers/SmoothScroll";
@@ -12,16 +14,20 @@ import SmoothScroll from "@/components/providers/SmoothScroll";
 const newsreader = Newsreader({
   subsets: ["latin"],
   variable: "--font-newsreader",
+  display: 'swap',
+  adjustFontFallback: false,
 });
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: 'swap',
 });
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-space-grotesk",
+  display: 'swap',
 });
 
 export const metadata: Metadata = {

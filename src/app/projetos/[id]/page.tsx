@@ -33,6 +33,8 @@ const GithubIcon = ({ size = 20 }: { size?: number }) => (
 export default function ProjectPage({ params }: { params: { id: string } }) {
   const project = projects.find((p) => p.id === params.id);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [lightboxImages, setLightboxImages] = useState<string[]>([]);
+  const [lightboxIndex, setLightboxIndex] = useState<number>(0);
 
   if (!project) {
     notFound();
@@ -49,28 +51,62 @@ export default function ProjectPage({ params }: { params: { id: string } }) {
     <main className="min-h-screen bg-[#050505] text-white pt-32 pb-32 px-6 relative overflow-hidden">
       {/* Lightbox */}
       <AnimatePresence>
-        {selectedImage && (
+        {(selectedImage || lightboxImages.length > 0) && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setSelectedImage(null)}
-            className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-xl flex items-center justify-center p-4 md:p-12 cursor-zoom-out"
+            className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-2xl flex items-center justify-center p-4 md:p-12"
           >
+            <div 
+              className="absolute inset-0 cursor-zoom-out" 
+              onClick={() => {
+                setSelectedImage(null);
+                setLightboxImages([]);
+              }}
+            />
+            
             <motion.button
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="absolute top-8 right-8 p-3 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+              onClick={() => {
+                setSelectedImage(null);
+                setLightboxImages([]);
+              }}
+              className="absolute top-8 right-8 p-3 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors z-[110]"
             >
               <X size={24} />
             </motion.button>
+
+            {lightboxImages.length > 1 && (
+              <>
+                <button 
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setLightboxIndex((prev) => (prev - 1 + lightboxImages.length) % lightboxImages.length);
+                  }}
+                  className="absolute left-8 top-1/2 -translate-y-1/2 p-4 rounded-full bg-white/5 text-white hover:bg-emerald hover:text-black transition-all z-[110]"
+                >
+                  <ArrowLeft size={24} />
+                </button>
+                <button 
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setLightboxIndex((prev) => (prev + 1) % lightboxImages.length);
+                  }}
+                  className="absolute right-8 top-1/2 -translate-y-1/2 p-4 rounded-full bg-white/5 text-white hover:bg-emerald hover:text-black transition-all z-[110]"
+                >
+                  <ArrowLeft className="rotate-180" size={24} />
+                </button>
+              </>
+            )}
+
             <motion.img
+              key={selectedImage || lightboxImages[lightboxIndex]}
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              src={selectedImage}
+              src={selectedImage || lightboxImages[lightboxIndex]}
               alt="Project Visual"
-              className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+              className="max-w-[90vw] max-h-[85vh] object-contain rounded-lg shadow-2xl relative z-[105]"
             />
           </motion.div>
         )}

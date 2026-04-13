@@ -77,7 +77,7 @@ export default function Methodology() {
             >
               <div className="text-black font-bold text-lg mb-2">Renato B. Carvalho</div>
               <p className="text-black/70 text-sm italic leading-relaxed">
-                "Meu papel não é apenas escrever código, é construir pontes entre sistemas complexos e resultados tangíveis."
+                &quot;Meu papel não é apenas escrever código, é construir pontes entre sistemas complexos e resultados tangíveis.&quot;
               </p>
               <div className="mt-4 flex gap-1">
                  {[1,2,3,4,5].map(i => (

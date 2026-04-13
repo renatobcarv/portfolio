@@ -12,7 +12,22 @@ const heroMetrics = [
   { value: 40, suffix: "+", label: "LP Templates", icon: Shield },
 ];
 
-const systemMetrics = [
+interface MetricRow {
+  label: string;
+  value?: number;
+  textValue?: string;
+  suffix: string;
+  unit: string;
+  status: string;
+  url?: string;
+}
+
+interface MetricGroup {
+  category: string;
+  rows: MetricRow[];
+}
+
+const systemMetrics: MetricGroup[] = [
   {
     category: "RECEITA & CRESCIMENTO",
     rows: [
