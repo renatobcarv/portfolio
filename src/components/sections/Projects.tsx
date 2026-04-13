@@ -118,7 +118,7 @@ export default function Projects() {
                       ))}
                     </div>
 
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-4 lg:gap-6">
                       {project.github && (
                         <a 
                           href={project.github}
@@ -130,29 +130,30 @@ export default function Projects() {
                           <GithubIcon size={18} />
                         </a>
                       )}
-                      {project.liveUrl ? (
+                      
+                      {project.liveUrl && (
                         <a 
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-2 group/btn py-2 px-1"
+                          className="flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-emerald/10 border border-emerald/20 text-emerald hover:bg-emerald/20 transition-all duration-300 group/site"
                         >
-                          <span className="font-mono text-[10px] tracking-widest uppercase text-white/50 group-hover/btn:text-emerald transition-colors link-underline">
-                            Acessar Site
-                          </span>
-                          <ArrowRight size={14} className="text-emerald -rotate-45 group-hover/btn:rotate-0 transition-transform duration-300" />
+                          <span className="font-mono text-[9px] tracking-widest uppercase font-bold">Ver Site</span>
+                          <svg className="w-3.5 h-3.5 group-hover/site:translate-x-0.5 group-hover/site:-translate-y-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          </svg>
                         </a>
-                      ) : (
-                        <Link 
-                          href={project.link}
-                          className="flex items-center gap-2 group/btn py-2 px-1"
-                        >
-                          <span className="font-mono text-[10px] tracking-widest uppercase text-white/50 group-hover/btn:text-emerald transition-colors link-underline">
-                            Saber Mais
-                          </span>
-                          <ArrowRight size={14} className="text-emerald -rotate-45 group-hover/btn:rotate-0 transition-transform duration-300" />
-                        </Link>
                       )}
+
+                      <Link 
+                        href={project.link}
+                        className="flex items-center gap-2 group/btn py-2 px-1"
+                      >
+                        <span className="font-mono text-[10px] tracking-widest uppercase text-white/50 group-hover/btn:text-emerald transition-colors link-underline">
+                          Saber Mais
+                        </span>
+                        <ArrowRight size={14} className="text-emerald -rotate-45 group-hover/btn:rotate-0 transition-transform duration-300" />
+                      </Link>
                     </div>
                   </div>
                 </div>
