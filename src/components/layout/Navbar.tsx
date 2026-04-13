@@ -52,9 +52,11 @@ export default function Navbar() {
 
         {/* Right: CTA */}
         <div className="flex items-center gap-6">
-          <button className="px-6 py-2.5 bg-cyber-white text-cyber-black rounded-full text-xs font-bold transition-transform hover:scale-105 shadow-[0_0_0_0_rgba(16,185,129,0.4)] animate-pulse-emerald">
-            Get in touch
-          </button>
+          <Link href="/#contato">
+            <button className="px-6 py-2.5 bg-cyber-white text-cyber-black rounded-full text-xs font-bold transition-transform hover:scale-105 shadow-[0_0_0_0_rgba(16,185,129,0.4)] animate-pulse-emerald">
+              Contato
+            </button>
+          </Link>
         </div>
       </div>
     </header>
