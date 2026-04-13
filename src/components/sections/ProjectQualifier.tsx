@@ -407,7 +407,7 @@ export default function ProjectQualifier() {
                   </div>
                   <div className="mt-8 p-4 bg-white/[0.03] rounded-xl">
                     <span className="text-[10px] uppercase tracking-widest text-white/20 font-bold block mb-2">Descrição</span>
-                    <p className="text-white/50 text-xs italic">"{formData.descricao || 'Nenhuma descrição detalhada fornecida.'}"</p>
+                    <p className="text-white/50 text-xs italic">&quot;{formData.descricao || 'Nenhuma descrição detalhada fornecida.'}&quot;</p>
                   </div>
                 </div>
 
