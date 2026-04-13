@@ -130,15 +130,29 @@ export default function Projects() {
                           <GithubIcon size={18} />
                         </a>
                       )}
-                      <Link 
-                        href={project.link}
-                        className="flex items-center gap-2 group/btn py-2 px-1"
-                      >
-                        <span className="font-mono text-[10px] tracking-widest uppercase text-white/50 group-hover/btn:text-emerald transition-colors link-underline">
-                          Saber Mais
-                        </span>
-                        <ArrowRight size={14} className="text-emerald -rotate-45 group-hover/btn:rotate-0 transition-transform duration-300" />
-                      </Link>
+                      {project.liveUrl ? (
+                        <a 
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 group/btn py-2 px-1"
+                        >
+                          <span className="font-mono text-[10px] tracking-widest uppercase text-white/50 group-hover/btn:text-emerald transition-colors link-underline">
+                            Acessar Site
+                          </span>
+                          <ArrowRight size={14} className="text-emerald -rotate-45 group-hover/btn:rotate-0 transition-transform duration-300" />
+                        </a>
+                      ) : (
+                        <Link 
+                          href={project.link}
+                          className="flex items-center gap-2 group/btn py-2 px-1"
+                        >
+                          <span className="font-mono text-[10px] tracking-widest uppercase text-white/50 group-hover/btn:text-emerald transition-colors link-underline">
+                            Saber Mais
+                          </span>
+                          <ArrowRight size={14} className="text-emerald -rotate-45 group-hover/btn:rotate-0 transition-transform duration-300" />
+                        </Link>
+                      )}
                     </div>
                   </div>
                 </div>

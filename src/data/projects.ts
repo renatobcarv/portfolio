@@ -17,6 +17,7 @@ export interface ProjectData {
   stack: string[];
   github?: string;
   link: string;
+  liveUrl?: string;
   accent: string;
   details: {
     challenge: string;
@@ -72,8 +73,9 @@ export const projects: ProjectData[] = [
       "Next.js 14", "FastAPI", "PostgreSQL", "Supabase", 
       "Stripe", "n8n", "Framer Motion", "Recharts"
     ],
-    github: "https://github.com/renatobcarvalho/valence", 
+    github: "https://github.com/renatobcarv/portfolio", 
     link: "/projetos/valence",
+    liveUrl: "https://www.valencepro.com/",
     accent: "EMERALD",
     details: {
       challenge: "Empresas perdem milhões diariamente por leads ignorados, carrinhos abandonados e falta de visibilidade nos funis. O desafio era criar uma plataforma que detectasse esses 'vazamentos' e os recuperasse sem intervenção humana constante.",
