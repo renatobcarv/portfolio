@@ -6,7 +6,7 @@ import { Activity, TrendingUp, Shield, Zap } from "lucide-react";
 import { SpotlightCard } from "@/components/ui/SpotlightCard";
 
 const heroMetrics = [
-  { value: 6, suffix: "+", label: "Anos de Mercado", icon: Activity },
+  { value: 4, suffix: "+", label: "Anos de Mercado", icon: Activity },
   { value: 19, suffix: "", label: "Anos de Idade", icon: Zap },
   { value: 7, suffix: "+", label: "Infoprodutos", icon: TrendingUp },
   { value: 40, suffix: "+", label: "LP Templates", icon: Shield },
@@ -38,9 +38,8 @@ const systemMetrics: MetricGroup[] = [
   {
     category: "OPERAÇÃO & DELIVERY",
     rows: [
-      { label: "Experiência Acumulada em Negócios", value: 6, suffix: "+", unit: "Anos", status: "stable" },
+      { label: "Experiência Acumulada em Negócios", value: 4, suffix: "+", unit: "Anos", status: "stable" },
       { label: "Infoprodutos Validados e Escalados", value: 7, suffix: "+", unit: "Produtos", status: "stable" },
-      { label: "Sistemas em Produção Simultânea", value: 3, suffix: "", unit: "Plataformas", status: "live" },
       { label: "Estilos de Landing Page Disponíveis", value: 40, suffix: "+", unit: "Templates", status: "stable" },
     ],
   },

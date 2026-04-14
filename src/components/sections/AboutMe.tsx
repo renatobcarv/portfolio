@@ -69,7 +69,7 @@ export default function AboutMe() {
             className="p-8 rounded-[2rem] bg-white/[0.02] border border-white/5 flex flex-col justify-between h-[200px]"
           >
             <div className="font-mono text-[10px] uppercase tracking-widest text-emerald">Trajetória</div>
-            <div className="text-xl font-serif text-cyber-white">6+ Anos de Execução</div>
+            <div className="text-xl font-serif text-cyber-white">4+ Anos de Execução</div>
           </motion.div>
 
           <motion.div 
