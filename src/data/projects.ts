@@ -67,8 +67,8 @@ export const projects: ProjectData[] = [
     thumbnail: "/images/valence/dashboard/1.png",
     summary: "O sistema operacional de inteligência de receita que detecta e recupera lucro morto de forma automatizada.",
     metrics: [
-      { label: "ROI MÉDIO", value: "12X" },
-      { label: "RECUPERAÇÃO", value: "85%" },
+      { label: "STATUS", value: "EM DEV" },
+      { label: "FASE", value: "ALPHA" },
       { label: "PROCESSAMENTO", value: "<60s" }
     ],
     stack: [

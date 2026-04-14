@@ -27,8 +27,8 @@ const projects: Project[] = [
     tags: ["Next.js", "FastAPI", "PostgreSQL", "Stripe"],
     image: "/images/Valence Logo.png",
     metrics: [
-      { label: "ROI Médio", value: "12x" },
-      { label: "Recuperação", value: "85%" }
+      { label: "Status", value: "Em Dev" },
+      { label: "Fase", value: "Alpha" }
     ]
   },
   {
