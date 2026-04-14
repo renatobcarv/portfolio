@@ -27,7 +27,10 @@ export default function Methodology() {
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
         {/* Left Side: Numbered List */}
         <div>
-          <div className="font-mono text-[10px] tracking-widest uppercase opacity-50 mb-6">Metodologia de Engenharia</div>
+          <div className="font-mono text-[10px] tracking-widest uppercase opacity-50 mb-6 font-bold flex items-center gap-2">
+            <div className="w-1 h-1 bg-emerald rounded-full animate-pulse" />
+            05 — Metodologia de Engenharia
+          </div>
           <h2 className="text-5xl md:text-6xl font-bold tracking-tightest mb-16 leading-[0.9]">
             Como eu transformo <br />
             <span className="italic opacity-40">lógica em lucro.</span>

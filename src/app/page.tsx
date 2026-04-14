@@ -7,8 +7,8 @@ import ProjectQualifier from "@/components/sections/ProjectQualifier";
 
 import Methodology from "@/components/sections/Methodology";
 import FAQ from "@/components/sections/FAQ";
-import BenchmarkTable from "@/components/sections/BenchmarkTable";
 import Contact from "@/components/sections/Contact";
+import Footer from "@/components/layout/Footer";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 
 export default function Home() {
@@ -21,9 +21,9 @@ export default function Home() {
       <ProjectQualifier />
       <Methodology />
 
-      <BenchmarkTable />
       <Contact />
       <FAQ />
+      <Footer />
     </main>
   );
 }

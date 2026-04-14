@@ -26,7 +26,7 @@ export default function AboutMe() {
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-5xl lg:text-6xl font-serif text-cyber-white tracking-tighter leading-[1.1] mb-8"
           >
-            Engenharia que entende negócio. <span className="italic text-emerald">Código que move número.</span>
+            Engenharia de negócio. <span className="italic text-emerald">Código que move o mercado</span>
           </motion.h2>
 
           <motion.div 
@@ -37,13 +37,14 @@ export default function AboutMe() {
             className="space-y-6 text-cyber-white/50 text-base md:text-lg font-sans font-light leading-relaxed"
           >
             <p>
-              Anos construindo no digital ensinaram o que a maioria dos devs nunca vai aprender na prática: onde o funil vaza, por que a página não converte, o que faz um produto vender ou morrer na prateleira.
+              Antes de escrever uma linha de código, já tinha construído e quebrado produtos digitais o suficiente pra entender onde o dinheiro some
             </p>
             <p>
-              O código veio depois — e veio com propósito. <strong className="text-cyber-white font-medium">Não entrei na engenharia para virar dev. Entrei para parar de depender de um.</strong>
+              O código veio depois e veio com propósito. <strong className="text-cyber-white font-medium">No funil, na página, na oferta errada pro público certo.</strong>
             </p>
             <p>
-              Hoje construo SaaS e software com a visão de quem já esteve do outro lado — como operador de negócio, não como técnico que tenta entender o mercado. Essa combinação é rara. E é exatamente o que faz a diferença entre um sistema que funciona e um sistema que gera resultado.
+              O código entrou como ferramenta, não como identidade. Ele resolve o que estratégia sozinha não consegue escalar.
+              Hoje opero na interseção entre negócio e engenharia. Uma combinação rara, e é exatamente o que separa um sistema que funciona de um sistema que gera resultado.
             </p>
           </motion.div>
         </div>
@@ -69,7 +70,7 @@ export default function AboutMe() {
             className="p-8 rounded-[2rem] bg-white/[0.02] border border-white/5 flex flex-col justify-between h-[200px]"
           >
             <div className="font-mono text-[10px] uppercase tracking-widest text-emerald">Trajetória</div>
-            <div className="text-xl font-serif text-cyber-white">4+ Anos de Execução</div>
+            <div className="text-xl font-serif text-cyber-white">3+ Anos de Execução</div>
           </motion.div>
 
           <motion.div 

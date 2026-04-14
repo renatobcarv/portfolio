@@ -127,7 +127,7 @@ export default function ProjectQualifier() {
             whileInView={{ opacity: 1, y: 0 }}
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald/10 border border-emerald/20 mb-4"
           >
-            <span className="text-[10px] font-mono tracking-widest text-emerald uppercase font-bold">Qualificador de Projetos</span>
+            <span className="text-[10px] font-mono tracking-widest text-emerald uppercase font-bold">04 — Qualificador de Projetos</span>
           </motion.div>
           <h2 className="text-3xl md:text-5xl font-serif text-white tracking-tightest mb-4">
             O que vamos <span className="italic gradient-text">Construir?</span>

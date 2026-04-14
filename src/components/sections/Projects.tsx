@@ -60,7 +60,7 @@ export default function Projects() {
           >
             <div className="w-1 h-1 bg-emerald rounded-full animate-pulse" />
             <span className="font-mono text-[9px] tracking-widest uppercase text-emerald">
-              02 — Projetos Selecionados
+              03 — Projetos Selecionados
             </span>
           </motion.div>
           
@@ -80,85 +80,78 @@ export default function Projects() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="space-y-6"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
           {projects.map((project) => (
             <motion.div key={project.id} variants={itemVariants}>
-              <SpotlightCard className="p-0 border border-white/5 hover:border-emerald/20 transition-colors duration-500 overflow-hidden group/card text-left">
-                <div className="flex flex-col md:flex-row min-h-[220px]">
-                  {/* Left content */}
-                  <div className="flex-1 p-8 md:p-10 relative z-20">
+              <SpotlightCard className="p-0 border border-white/5 hover:border-emerald/20 transition-colors duration-500 overflow-hidden group/card text-left h-full flex flex-col">
+                {/* Top Thumbnail */}
+                {project.thumbnail && (
+                  <div className="relative w-full h-[200px] overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent z-10" />
+                    <Image 
+                      src={project.thumbnail} 
+                      alt={project.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                      className="object-cover grayscale opacity-40 group-hover/card:grayscale-0 group-hover/card:opacity-60 transition-all duration-700 group-hover/card:scale-110"
+                    />
+                  </div>
+                )}
+
+                {/* Content */}
+                <div className="flex-1 p-8 relative z-20 flex flex-col justify-between">
+                  <div>
                     <div className="flex items-center gap-3 mb-4">
                        <span className="font-mono text-[9px] tracking-widest text-emerald uppercase font-bold">
                          {project.role}
                        </span>
-                       <div className="h-px w-8 bg-white/10" />
                     </div>
                     
-                    <h3 className="text-2xl md:text-4xl font-serif text-white tracking-tightest mb-4">
+                    <h3 className="text-2xl md:text-3xl font-serif text-white tracking-tightest mb-4">
                       {project.name}
                     </h3>
                     
-                    <p className="text-cyber-white/40 text-[13px] leading-relaxed font-sans max-w-lg mb-8">
+                    <p className="text-cyber-white/40 text-[13px] leading-relaxed font-sans mb-8">
                       {project.summary}
                     </p>
-
-                    <div className="flex items-center gap-4 flex-wrap">
-                      <div className="flex gap-6 mr-4">
-                        {project.metrics.map((metric, i) => (
-                          <div key={i} className="flex flex-col">
-                            <span className="text-xl font-mono text-white/80 font-bold tracking-tightest">
-                              {metric.value}
-                            </span>
-                            <span className="text-[8px] font-mono tracking-widest text-white/30 uppercase">
-                              {metric.label}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-
-                      <div className="h-4 w-px bg-white/10 hidden md:block" />
-
-                      <div className="flex items-center gap-5">
-                        {project.github && (
-                          <a 
-                            href={project.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-white/30 hover:text-emerald transition-colors"
-                            title="Ver Repositório"
-                          >
-                            <GithubIcon size={18} />
-                          </a>
-                        )}
-                        
-                        <Link 
-                          href={project.link}
-                          className="flex items-center gap-2 group/btn py-2"
-                        >
-                          <span className="font-mono text-[10px] tracking-widest uppercase text-white/50 group-hover/btn:text-emerald transition-colors link-underline">
-                            Saber Mais
-                          </span>
-                          <ArrowRight size={14} className="text-emerald -rotate-45 group-hover/btn:rotate-0 transition-transform duration-300" />
-                        </Link>
-                      </div>
-                    </div>
                   </div>
 
-                  {/* Right Thumbnail */}
-                  {project.thumbnail && (
-                    <div className="relative w-full md:w-[40%] h-[200px] md:h-auto overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-r from-[#050505] to-transparent z-10 hidden md:block" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/20 to-transparent z-10 md:hidden" />
-                      <Image 
-                        src={project.thumbnail} 
-                        alt={project.name}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 500px"
-                        className="object-cover grayscale opacity-40 group-hover/card:grayscale-0 group-hover/card:opacity-60 transition-all duration-700 group-hover/card:scale-110"
-                      />
+                  <div className="flex items-center justify-between gap-4 mt-auto">
+                    <div className="flex gap-4">
+                      {project.metrics.map((metric, i) => (
+                        <div key={i} className="flex flex-col">
+                          <span className="text-lg font-mono text-white/80 font-bold tracking-tightest">
+                            {metric.value}
+                          </span>
+                          <span className="text-[7px] font-mono tracking-widest text-white/30 uppercase">
+                            {metric.label}
+                          </span>
+                        </div>
+                      ))}
                     </div>
-                  )}
+
+                    <div className="flex items-center gap-5">
+                      {project.github && (
+                        <a 
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-white/30 hover:text-emerald transition-colors"
+                          title="Ver Repositório"
+                        >
+                          <GithubIcon size={18} />
+                        </a>
+                      )}
+                      
+                      <Link 
+                        href={project.link}
+                        className="flex items-center gap-2 group/btn py-2"
+                      >
+                        <ArrowRight size={14} className="text-emerald -rotate-45 group-hover/btn:rotate-0 transition-transform duration-300" />
+                      </Link>
+                    </div>
+                  </div>
                 </div>
               </SpotlightCard>
             </motion.div>
@@ -166,44 +159,39 @@ export default function Projects() {
 
           {/* STANDOUT: Landing Pages Catalog */}
           <motion.div variants={itemVariants}>
-            <Link href="/paginas-de-vendas">
-              <SpotlightCard className="p-6 md:p-8 border border-emerald/10 bg-emerald/[0.02] hover:bg-emerald/[0.05] hover:border-emerald/30 transition-all duration-500 group">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-3">
-                       <span className="font-mono text-[9px] tracking-widest text-emerald uppercase font-bold">
-                         EDITORIAL & PERFORMANCE
-                       </span>
-                       <div className="h-px w-8 bg-emerald/20" />
-                    </div>
-                    
-                    <h3 className="text-2xl md:text-3xl font-serif text-white tracking-tightest mb-3">
-                      Páginas de <span className="italic gradient-text">Vendas</span>
-                    </h3>
-                    
-                    <p className="text-emerald/40 text-sm leading-relaxed font-sans max-w-lg">
-                      Catálogo visual com mais de 40 estilos de landing pages de alta conversão. Do editorial premium ao brutalist.
-                    </p>
+            <Link href="/paginas-de-vendas" className="h-full block">
+              <SpotlightCard className="p-8 border border-emerald/10 bg-emerald/[0.02] hover:bg-emerald/[0.05] hover:border-emerald/30 transition-all duration-500 group h-full flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center gap-3 mb-4">
+                     <span className="font-mono text-[9px] tracking-widest text-emerald uppercase font-bold">
+                       EDITORIAL & PERFORMANCE
+                     </span>
+                  </div>
+                  
+                  <h3 className="text-2xl md:text-3xl font-serif text-white tracking-tightest mb-4">
+                    Páginas de <br /><span className="italic gradient-text">Vendas</span>
+                  </h3>
+                  
+                  <p className="text-emerald/40 text-[13px] leading-relaxed font-sans mb-8">
+                    Catálogo visual com mais de 40 estilos de alta conversão. Do editorial premium ao brutalist.
+                  </p>
+                </div>
+
+                <div className="flex flex-col gap-6 mt-auto">
+                  <div className="flex flex-col">
+                    <span className="text-3xl font-mono text-emerald font-bold tracking-tightest">
+                      40+
+                    </span>
+                    <span className="text-[7px] font-mono tracking-widest text-emerald/40 uppercase mt-1">
+                      Estilos Disponíveis
+                    </span>
                   </div>
 
-                  <div className="flex items-center gap-6">
-                    <div className="flex flex-col items-end">
-                      <span className="text-2xl font-mono text-emerald font-bold tracking-tightest">
-                        40+
-                      </span>
-                      <span className="text-[8px] font-mono tracking-widest text-emerald/40 uppercase mt-1">
-                        Estilos Disponíveis
-                      </span>
-                    </div>
-
-                    <div className="h-12 w-px bg-emerald/10 hidden md:block" />
-
-                    <div className="flex items-center gap-2 group/btn">
-                      <span className="font-mono text-[10px] tracking-widest uppercase text-emerald group-hover:translate-x-1 transition-transform">
-                        Explorar Catálogo
-                      </span>
-                      <ArrowRight size={14} className="text-emerald bg-emerald/10 p-2 rounded-full w-8 h-8" />
-                    </div>
+                  <div className="flex items-center gap-2 group/btn">
+                    <span className="font-mono text-[10px] tracking-widest uppercase text-emerald group-hover:translate-x-1 transition-transform">
+                      Explorar Catálogo
+                    </span>
+                    <ArrowRight size={14} className="text-emerald bg-emerald/10 p-2 rounded-full w-8 h-8" />
                   </div>
                 </div>
               </SpotlightCard>

@@ -48,7 +48,7 @@ export default function Hero() {
             variants={itemVariants}
             className="text-lg text-cyber-white/50 max-w-lg leading-relaxed font-sans font-light"
           >
-            Foco em performance, automação e arquiteturas que estancam vazamentos financeiros. Transformo lógica em receita real para o seu negócio.
+            Foco em performance, automação e arquiteturas que escalam de verdade. Transformo lógica em sistemas que geram receita <span className="font-serif italic text-emerald tracking-tighter">previsível, mensurável e crescente.</span>
           </motion.p>
 
           <motion.div variants={itemVariants} className="flex flex-wrap gap-4 pt-4">
