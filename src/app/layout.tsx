@@ -32,19 +32,19 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.renatobdev.pro"),
-  title: "Renato B. Carvalho | Revenue Engineer",
-  description: "Desenvolvedor que constrói sistemas com impacto real. Foco em performance, automação e soluções escaláveis.",
+  title: "Renato B. Carvalho | Desenvolvedor Back-End & Front-End",
+  description: "Desenvolvedor em formação, focado em back-end com Java e Spring. Estudante de ADS, 19 anos, Brasília. Em busca da primeira oportunidade formal como estagiário ou júnior.",
   openGraph: {
     type: "website",
     locale: "pt_BR",
     url: "https://www.renatobdev.pro",
-    title: "Renato B. Carvalho | Revenue Engineer",
-    description: "Desenvolvedor que constrói sistemas com impacto real. Foco em performance, automação e soluções escaláveis.",
+    title: "Renato B. Carvalho | Desenvolvedor",
+    description: "Desenvolvedor em formação, focado em back-end com Java e Spring. Estudante de ADS, 19 anos, Brasília. Em busca da primeira oportunidade formal como estagiário ou júnior.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Renato B. Carvalho | Revenue Engineer",
-    description: "Desenvolvedor que constrói sistemas com impacto real. Foco em performance, automação e soluções escaláveis.",
+    title: "Renato B. Carvalho | Desenvolvedor",
+    description: "Desenvolvedor em formação, focado em back-end com Java e Spring. Estudante de ADS, 19 anos, Brasília. Em busca da primeira oportunidade formal como estagiário ou júnior.",
   }
 };
 

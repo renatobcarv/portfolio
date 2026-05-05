@@ -1,15 +1,12 @@
-// Force rebuild: 2026-04-13T00:42
+// Conteúdo atualizado em 2026-05-05
 import Hero from "@/components/sections/Hero";
 import AboutMe from "@/components/sections/AboutMe";
 import TechStack from "@/components/sections/TechStack";
 import Projects from "@/components/sections/Projects";
-import ProjectQualifier from "@/components/sections/ProjectQualifier";
-
-import Methodology from "@/components/sections/Methodology";
-import FAQ from "@/components/sections/FAQ";
+import Education from "@/components/sections/Education";
+import Portrait from "@/components/sections/Portrait";
 import Contact from "@/components/sections/Contact";
-import Footer from "@/components/layout/Footer";
-import SmoothScroll from "@/components/providers/SmoothScroll";
+import FAQ from "@/components/sections/FAQ";
 
 export default function Home() {
   return (
@@ -18,12 +15,10 @@ export default function Home() {
       <AboutMe />
       <TechStack />
       <Projects />
-      <ProjectQualifier />
-      <Methodology />
-
+      <Education />
+      <Portrait />
       <Contact />
       <FAQ />
-      <Footer />
     </main>
   );
 }
